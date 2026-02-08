@@ -1,191 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Himanshu | Creative Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#05050a;
-      --card:#0e0e1f;
-      --accent:#00f5ff;
-      --accent2:#ff2cdf;
-      --text:#e6faff;
-      --muted:#7aa2b8;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-    body{background:radial-gradient(circle at top,#0d0d25,var(--bg));color:var(--text);overflow-x:hidden;}
-    html{scroll-behavior:smooth;}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Himanshu | Creative Developer</title>
 
-    /* Loader */
-    #loader{
-      position:fixed;inset:0;background:#000;
-      display:flex;align-items:center;justify-content:center;
-      z-index:99999;
-    }
-    #loader h1{
-      font-size:3rem;
-      letter-spacing:8px;
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      -webkit-background-clip:text;color:transparent;
-      animation:pulse 1.2s infinite alternate;
-    }
-    @keyframes pulse{from{opacity:.3;transform:scale(.9);}to{opacity:1;transform:scale(1.05);}}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    .glow{position:fixed;width:420px;height:420px;background:var(--accent);filter:blur(200px);opacity:.25;top:-120px;left:-120px;animation:float 12s infinite alternate ease-in-out;z-index:-1;}
-    @keyframes float{to{transform:translate(700px,350px);}}
+<style>
+:root{
+  --bg:#05050a;
+  --card:#0e0e1f;
+  --accent:#00f5ff;
+  --accent2:#ff2cdf;
+  --text:#e6faff;
+  --muted:#7aa2b8;
+}
 
-    header{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;}
-    header h1{font-size:clamp(2.8rem,6vw,5.2rem);font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent;}
-    header p{margin-top:20px;color:var(--muted);max-width:620px;font-size:1.1rem;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    .btn{display:inline-block;margin-top:35px;padding:14px 34px;border-radius:40px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#000;font-weight:600;text-decoration:none;box-shadow:0 0 30px rgba(0,245,255,.4);}
+html{scroll-behavior:smooth;}
+body{
+  background:radial-gradient(circle at top,#0d0d25,var(--bg));
+  color:var(--text);
+  overflow-x:hidden;
+}
 
-    section{padding:100px 8vw;}
-    h2{font-size:2.5rem;margin-bottom:40px;}
+/* Loader */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+}
+#loader h1{
+  font-size:3rem;
+  letter-spacing:8px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:pulse 1.2s infinite alternate;
+}
+@keyframes pulse{
+  from{opacity:.3;transform:scale(.9);}
+  to{opacity:1;transform:scale(1.05);}
+}
 
-    .card{background:var(--card);border-radius:26px;padding:35px;box-shadow:0 25px 60px rgba(0,0,0,.6);transition:.4s;transform-style:preserve-3d;}
-    .card:hover{box-shadow:0 35px 90px rgba(0,245,255,.25);}
+/* Glow blob */
+.glow{
+  position:fixed;
+  width:420px;
+  height:420px;
+  background:var(--accent);
+  filter:blur(200px);
+  opacity:.25;
+  top:-120px;
+  left:-120px;
+  animation:float 12s infinite alternate ease-in-out;
+  z-index:-1;
+}
+@keyframes float{
+  to{transform:translate(700px,350px);}
+}
 
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+/* Header */
+header{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px;
+}
+header h1{
+  font-size:clamp(2.8rem,6vw,5.2rem);
+  font-weight:800;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+header p{
+  margin-top:20px;
+  color:var(--muted);
+  max-width:620px;
+  font-size:1.1rem;
+}
 
-    iframe{border-radius:20px;border:none;}
+.btn{
+  display:inline-block;
+  margin-top:35px;
+  padding:14px 34px;
+  border-radius:40px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#000;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 0 30px rgba(0,245,255,.4);
+}
 
-    .video-wrap{position:relative;overflow:hidden;border-radius:20px;}
+/* Sections */
+section{padding:100px 8vw;}
+h2{font-size:2.5rem;margin-bottom:40px;}
 
-    .stats h3{font-size:3rem;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent;}
+.card{
+  background:var(--card);
+  border-radius:26px;
+  padding:35px;
+  box-shadow:0 25px 60px rgba(0,0,0,.6);
+  transition:.4s;
+}
+.card:hover{
+  box-shadow:0 35px 90px rgba(0,245,255,.25);
+}
 
-    .cursor{position:fixed;width:16px;height:16px;border:2px solid var(--accent2);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:9999;}
-    .particle{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;opacity:.8;}
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
 
-    .reveal{opacity:0;transform:translateY(40px);transition:1s;}
-    .reveal.active{opacity:1;transform:none;}
+/* Cursor */
+.cursor{
+  position:fixed;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:radial-gradient(circle,var(--accent),transparent 60%);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:9999;
+  mix-blend-mode:screen;
+}
 
-    @media(max-width:900px){
-      section{padding:70px 6vw;}
-      header{min-height:90vh;}
-      header h1{font-size:2.6rem;}
-      header p{font-size:1rem;}
+.particle{
+  position:fixed;
+  width:10px;
+  height:10px;
+  background:var(--accent2);
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(2px);
+  opacity:.8;
+}
 
-      .projects{grid-template-columns:1fr;}
+/* Reveal */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
 
-      .card{padding:24px;}
+/* Stats */
+.stats h3{
+  font-size:3rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-      .video-wrap iframe{height:220px;}
+/* Footer */
+footer{
+  padding:40px;
+  text-align:center;
+  color:var(--muted);
+}
 
-      /* disable heavy effects on mobile for smoothness */
-      .cursor,.particle{display:none;}
-    }
+/* Mobile */
+@media(max-width:900px){
+  section{padding:70px 6vw;}
+  header h1{font-size:2.6rem;}
+  .projects{grid-template-columns:1fr;}
+  .cursor,.particle{display:none;}
+}
 
-    @media(max-width:480px){
-      header h1{font-size:2.2rem;}
-      h2{font-size:2rem;}
-      .stats h3{font-size:2.4rem;}
-    }}
-  </style>
+@media(max-width:480px){
+  header h1{font-size:2.2rem;}
+  h2{font-size:2rem;}
+}
+</style>
 </head>
+
 <body>
-  <!-- Loader -->
-  <div id="loader">
-    <h1>HIMANSHU</h1>
+
+<!-- Loader -->
+<div id="loader"><h1>HIMANSHU</h1></div>
+
+<!-- Effects -->
+<div class="cursor"></div>
+<div class="glow"></div>
+
+<!-- Hero -->
+<header>
+  <div>
+    <h1>Himanshu Raj</h1>
+    <p>YouTube creator, video editor & cubing enthusiast — I build scroll-stopping edits and interactive websites that feel way beyond my age.</p>
+    <a href="#projects" class="btn">See My Work</a>
   </div>
+</header>
 
-  <!-- Custom Cursor -->
-  <div class="cursor"></div>
-  <div class="cursor"></div>
-  <div class="glow"></div>
+<!-- About -->
+<section class="reveal">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      Dark anime visuals, motion synced edits, strong creator identity.
+      Built for Shorts, reels and high-impact storytelling.
+    </p>
+  </div>
+</section>
 
-  <header>
-    <div>
-      <h1>Himanshu Raj</h1>
-      <p>YouTube creator, video editor & cubing enthusiast — I build scroll‑stopping edits and interactive websites that feel way beyond my age.</p>
-      <a href="#projects" class="btn magnetic">See My Work</a>
-    </div>
-  </header>
+<!-- Projects / Stats -->
+<section id="projects" class="reveal stats">
+  <h2>Cubing Performance</h2>
+  <div class="projects">
+    <div class="card"><h3 class="counter" data-count="12">0</h3><p>Best TPS</p></div>
+    <div class="card"><h3 class="counter" data-count="8">0</h3><p>Ao5 Seconds</p></div>
+    <div class="card"><h3 class="counter" data-count="50">0</h3><p>Shorts Edited</p></div>
+    <div class="card"><h3 class="counter" data-count="10000">0</h3><p>Views</p></div>
+  </div>
+</section>
 
-  <section class="reveal">
-    <h2>About Me</h2>
-    <div class="about">
-      <div class="card tilt">
-      <h3>Anime Style Branding & Motion</h3>
-      <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;">
-        <div>
-          <p>Dark anime visuals designed for emotional impact, recognisable identity and Shorts-style intensity.</p>
-          <ul style="margin-top:20px;color:var(--muted);line-height:1.8;">
-            <li>• Cinematic contrast</li>
-            <li>• Music synced motion</li>
-            <li>• Strong creator identity</li>
-            <li>• Gaming/anime aura</li>
-          </ul>
-        </div>
-        <div class="video-wrap" data-video="57JbnkD9Wq0"></div>
-      </div>
-    </div>
-    </div>
-  </section>
+<footer class="reveal">
+  © 2026 Himanshu Raj — Built with obsession ⚡
+</footer>
 
-  <footer class="reveal">
-    <p>© 2026 Himanshu Raj — Built with obsession & sleepless nights ⚡</p>
-    </footer>
+<script>
+// Loader
+window.addEventListener('load',()=>{
+  setTimeout(()=>document.getElementById('loader').style.display='none',1200);
+});
 
-  <!-- stats section -->
-  <section class="reveal stats">
-    <h2>Cubing Performance</h2>
-    <div class="projects">
-      <div class="card tilt"><h3 data-count="12" class="counter">0</h3><p>Best TPS</p></div>
-      <div class="card tilt"><h3 data-count="8" class="counter">0</h3><p>Ao5 Seconds</p></div>
-      <div class="card tilt"><h3 data-count="50" class="counter">0</h3><p>+ Shorts Edited</p></div>
-      <div class="card tilt"><h3 data-count="10000" class="counter">0</h3><p>+ Views</p></div>
-    </div>
-  </section>
+// Cursor + trail
+const cursor=document.querySelector('.cursor');
+let mouseX=0,mouseY=0,posX=0,posY=0;
 
+window.addEventListener('mousemove',e=>{
+  mouseX=e.clientX;
+  mouseY=e.clientY;
 
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.left=mouseX+'px';
+  p.style.top=mouseY+'px';
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),600);
+});
 
-  <script>
-    // loader
-    window.addEventListener('load',()=>{
-      setTimeout(()=>{
-        document.getElementById('loader').style.display='none';
-      },1200);
-    });
+function animate(){
+  posX+=(mouseX-posX)*0.15;
+  posY+=(mouseY-posY)*0.15;
+  cursor.style.left=posX+'px';
+  cursor.style.top=posY+'px';
+  requestAnimationFrame(animate);
+}
+animate();
 
-    // custom cursor + particles
-    const cursor=document.querySelector('.cursor');
-    window.addEventListener('mousemove',e=>{
-      cursor.style.left=e.clientX+'px';
-      cursor.style.top=e.clientY+'px';
-      const p=document.createElement('div');
-      p.className='particle';
-      p.style.left=e.clientX+'px';
-      p.style.top=e.clientY+'px';
-      document.body.appendChild(p);
-      setTimeout(()=>p.remove(),400);
-    });
+// Reveal
+const reveals=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-100){
+      el.classList.add('active');
+    }
+  });
+});
 
-    // scroll reveal
-    const reveals=document.querySelectorAll('.reveal');
-    window.addEventListener('scroll',()=>{
-      reveals.forEach(el=>{
-        if(el.getBoundingClientRect().top<window.innerHeight-100){el.classList.add('active');}
-      });
-    });
+// Counters
+document.querySelectorAll('.counter').forEach(counter=>{
+  let started=false;
+  window.addEventListener('scroll',()=>{
+    if(started) return;
+    if(counter.getBoundingClientRect().top<window.innerHeight){
+      started=true;
+      let i=0,target=+counter.dataset.count,step=target/80;
+      const int=setInterval(()=>{
+        i+=step;
+        counter.innerText=Math.floor(i);
+        if(i>=target){counter.innerText=target;clearInterval(int);}
+      },20);
+    }
+  });
+});
+</script>
 
-    // counters
-    document.querySelectorAll('.counter').forEach(counter=>{
-      let started=false;
-      window.addEventListener('scroll',()=>{
-        if(started) return;
-        if(counter.getBoundingClientRect().top<window.innerHeight){
-          started=true;
-          let i=0,target=+counter.dataset.count,step=target/80;
-          const int=setInterval(()=>{
-            i+=step;counter.innerText=Math.floor(i);
-            if(i>=target){counter.innerText=target;clearInterval(int);}
-          },20);
-        }
-      });
-    });
-  </script>
 </body>
 </html>
